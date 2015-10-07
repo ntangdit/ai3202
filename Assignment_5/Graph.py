@@ -14,13 +14,13 @@ class Graph(object):
 			for block in self.data:
 				#mountain
 				if block.value is 1:
-					block.util= -1.0
+					block.reward= -1.0
 				elif block.value is 3: #snake
-					block.util= -2.0
+					block.reward= -2.0
 				elif block.value is 4: #barn
-					block.util= 1.0
+					block.reward= 1.0
 				elif block.value is 50: #goal
-					block.util= 50.0
+					block.reward= 50.0
 				#no need to assign the 0s or even the wall
 
 	def findNode(self, x, y):

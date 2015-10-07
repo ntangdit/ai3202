@@ -7,7 +7,7 @@ class Node(object):
 		self.parent= None
 		#don't know value yet but should initialize
 		self.util= float(0)
+		self.reward= int(0)
 		self.value=value
-		self.delta= float(0)
-	
+
 	#Can make functionality within class
