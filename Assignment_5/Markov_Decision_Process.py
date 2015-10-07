@@ -5,7 +5,7 @@ import readWorld
 #end node will be made in the main. So will gama
 #I'm going to iteratively go through all the states and assign values
 #algorithm will be faster if I start from the 50 pts
-def mdp(graph, end, err)
+def mdp(graph, err):
 	gama= 0.9
 	delta = 0
 	for block in graph.data:
@@ -30,8 +30,8 @@ def mdp(graph, end, err)
 				sides += state.util*.8
 				options.append(sides)
 			utp= block.reward+ (gama* max(options))
-			if abs(end.util-utp)< err*(1-gama)/gama:
-				delta= abs(block.util-utp))
+			if abs(block.util - utp) < err*(1-gama)/gama:
+				delta= abs(block.util-utp)
 			if utp > block.util:
 				block.util= utp
 			if delta < err* (1-gama)/gama:

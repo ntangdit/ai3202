@@ -2,7 +2,7 @@ import Node
 
 class Graph(object):
 	def __init__(self):
-		data= []
+		self.data= []
 	
 	def addNode(self, Node):
 		data.append(Node)
