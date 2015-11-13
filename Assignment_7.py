@@ -56,3 +56,69 @@ print "1.A the probability of C= true is ", probC
 print "1.b the probability of c= t | r = t", pCgvR
 print "1.c the probability of s=t | w= t", pSgvW
 print "1.d the probability of s= t | c = t, w= t", pSgvCW
+
+del clouds[:], sprinkles[:], rain[:], wet[:]
+#Prob 2a
+for k in samples:
+	if k < 0.5:
+		clouds.append(True)
+	else:
+		clouds.append(False)
+print "2a the probability of c=t is ", float(clouds.count(True))/float(len(clouds))
+
+#Prob 2b
+del clouds[:]
+odb= 0
+for k in samples:
+	if odb is 0:
+		if k < 0.5:
+			rain.append(True)
+		else:
+			continue
+	elif odb is 1:
+		if k <0.5:
+			clouds.append(True)
+		else:
+			clouds.append(False)
+	odb += 1
+	odb %= 2
+probCgvR= float(clouds.count(True))/float(len(clouds))
+print "2b the probability of c=t | r = t", probCgvR
+
+
+#Prob 2c
+del clouds[:], rain[:]
+odb =0
+for k in samples:
+	if odb is 0:
+		if k > 0.6:
+			continue
+	elif odb is 1:
+		if k < 0.3:
+			sprinkles.append(True)
+		else:
+			sprinkles.append(False)
+	odb += 1
+	odb %= 2
+probSgvW= float(sprinkles.count(True))/float(len(sprinkles))
+print "2c the probability of s=t | w= t", probSgvW
+
+#Prob 2d
+del clouds[:]
+odb = 0
+for k in samples:
+	if odb is 0:
+		if k > 0.6:
+			continue
+	elif odb is 1:
+		if k > 0.5:
+			continue
+	elif odb is 2:
+		if k < 0.3:
+			sprinkles.append(True)
+		else:
+			sprinkles.append(False)
+	odb += 1
+	odb %= 3
+probSgvCW= float(sprinkles.count(True))/float(len(sprinkles))
+print "2d the probability of s=t | c=t, w=t", probSgvCW
